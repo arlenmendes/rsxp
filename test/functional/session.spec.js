@@ -14,6 +14,7 @@ const sessionPayload = {
 }
 
 trait('Test/ApiClient')
+trait('DatabaseTransactions')
 
 test('Token returned in session created', async ({ assert, client }) => {
   const user = await Factory.model('App/Models/User').create(sessionPayload)

@@ -21,3 +21,4 @@ Route.get('/', () => {
 })
 
 Route.post('/sessions', 'SessionController.store')
+Route.post('/forgot', 'ForgotPasswordController.store')
