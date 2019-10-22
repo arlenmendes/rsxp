@@ -22,3 +22,4 @@ Route.get('/', () => {
 
 Route.post('/sessions', 'SessionController.store')
 Route.post('/forgot', 'ForgotPasswordController.store')
+Route.patch('/reset', 'ForgotPasswordController.reset')
