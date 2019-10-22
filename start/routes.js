@@ -18,6 +18,6 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.post('/sessions', 'SessionController.store')
-Route.post('/forgot', 'ForgotPasswordController.store')
-Route.patch('/reset', 'ForgotPasswordController.reset')
+Route.post('/sessions', 'SessionController.store').validator('Session')
+Route.post('/forgot', 'ForgotPasswordController.store').validator('Forgot')
+Route.patch('/reset', 'ForgotPasswordController.reset').validator('Reset')
