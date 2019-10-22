@@ -1,5 +1,3 @@
-'use strict'
-
 const BaseExceptionHandler = use('BaseExceptionHandler')
 
 /**
@@ -20,25 +18,13 @@ class ExceptionHandler extends BaseExceptionHandler {
    *
    * @return {void}
    */
-  async handle(error, { request, response }) {
+  async handle(error, { response }) {
     if (error.name === 'ModelNotFoundException') {
       return response.status(400).json({ errors: ['resoruce not found'] })
     }
     console.error(error)
     return response.status(error.status).json({ errors: ['Error in server'] })
   }
-
-  /**
-   * Report exception for logging or debugging.
-   *
-   * @method report
-   *
-   * @param  {Object} error
-   * @param  {Object} options.request
-   *
-   * @return {void}
-   */
-  async report(error, { request }) {}
 }
 
 module.exports = ExceptionHandler

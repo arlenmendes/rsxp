@@ -1,4 +1,3 @@
-'use strict'
 const { randomBytes } = require('crypto')
 const { promisify } = require('util')
 
@@ -51,7 +50,7 @@ class ForgotPasswordController {
     }
   }
 
-  async reset({ request }) {
+  async reset({ request, response }) {
     const { token, password } = request.only(['token', 'password'])
 
     const tokenObject = await Token.query()
