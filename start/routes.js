@@ -21,3 +21,9 @@ Route.get('/', () => {
 Route.post('/sessions', 'SessionController.store').validator('Session')
 Route.post('/forgot', 'ForgotPasswordController.store').validator('Forgot')
 Route.patch('/reset', 'ForgotPasswordController.reset').validator('Reset')
+
+Route.group(() => {
+  Route.resource('workshops', 'WorkshopController')
+    .apiOnly()
+    .validator(new Map([[['workshops.store'], ['StoreWorkshop']]]))
+}).middleware(['auth'])
