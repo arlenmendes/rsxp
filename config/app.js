@@ -169,7 +169,7 @@ module.exports = {
     | based on HTTP headers/query string.
     |
     */
-    locale: 'en',
+    locale: 'pt',
   },
 
   logger: {
@@ -184,7 +184,7 @@ module.exports = {
     | Available drivers are: `file` and `console`.
     |
     */
-    transport: 'console',
+    transport: 'file',
 
     /*
     |--------------------------------------------------------------------------
@@ -215,7 +215,7 @@ module.exports = {
     file: {
       driver: 'file',
       name: 'adonis-app',
-      filename: 'adonis.log',
+      filename: 'api-rsxp.log',
       level: 'info',
     },
   },
