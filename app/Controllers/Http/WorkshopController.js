@@ -1,6 +1,6 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Workshop = use('App/Models/Workshop')
-/** @typedef {import('@adonisjs/')} Request */
+
 const Logger = use('Logger')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
