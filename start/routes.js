@@ -27,3 +27,14 @@ Route.group(() => {
     .apiOnly()
     .validator(new Map([[['workshops.store'], ['StoreWorkshop']]]))
 }).middleware(['auth'])
+
+Route.resource('users', 'UserController')
+  .apiOnly()
+  .except(['index'])
+  .middleware(new Map([[['update', 'destroy', 'show'], ['auth']]]))
+  .validator(
+    new Map([
+      [['users.store'], ['StoreUser']],
+      [['users.update'], ['UpdateUser']],
+    ])
+  )
