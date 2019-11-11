@@ -10,6 +10,8 @@ class UserSchema extends Schema {
         .string('email')
         .notNullable()
         .unique()
+      table.string('avatar')
+      table.string('linkedin')
       table.string('password').notNullable()
       table.timestamps()
     })

@@ -16,7 +16,9 @@ Factory.blueprint('App/Models/User', (faker, i, data = {}) => {
   return {
     name: faker.name(),
     email: faker.email(),
-    password: faker.string(),
+    avatar: faker.url({ extensions: ['jpg', 'png'] }),
+    linkedin: faker.url({ domain: 'www.linkedin.com/in' }),
+    password: faker.string({ length: 8 }),
     ...data,
   }
 })
