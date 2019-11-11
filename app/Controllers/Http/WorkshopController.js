@@ -62,6 +62,40 @@ class WorkshopController {
         .json({ errors: ['Erro ao cadastrar Workshop'] })
     }
   }
+
+  /**
+   * Update a workshop.
+   * PUT workshops
+   *
+   * @param {object} ctx
+   * @param {Params} ctx.params
+   * @param {Request} ctx.request
+   */
+  async update({ params, request }) {
+    const { id } = params
+    const data = request.only(['title', 'description', 'section', 'userId'])
+
+    const workshop = await Workshop.find(id)
+
+    workshop.merge(data)
+
+    await workshop.save()
+  }
+
+  /**
+   * Persiste a workshop.
+   * POST workshops
+   *
+   * @param {object} ctx
+   * @param {Params} ctx.params
+   */
+  async destroy({ params }) {
+    const { id } = params
+
+    const workshop = await Workshop.find(id)
+
+    await workshop.delete()
+  }
 }
 
 module.exports = WorkshopController
